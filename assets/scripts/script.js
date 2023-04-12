@@ -1,11 +1,9 @@
-/*jslint browser:true */
 $(document).ready(function () {
 	var $navbar = $('.navbar-default');
 	var $offsetY = 750;
 	var $scrollButton = $('.scroll');
 	var $navbarLink = $('.navbar-nav .nav-link');
 
-	// Fixed Nav after scroll
 	function scroll() {
 		if ($(window).scrollTop() >= $offsetY) {
 			$navbar.addClass('fixed-top');
@@ -15,7 +13,6 @@ $(document).ready(function () {
 	}
 	document.onscroll = scroll;
 
-	// Smooth scroll to content
 	$scrollButton.on('click', function (e) {
 		e.preventDefault();
 		var $link = $(this).attr('href');
