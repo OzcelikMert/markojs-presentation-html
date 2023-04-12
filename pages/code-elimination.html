@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Erhan Kurt | MarkoJS - KOD ELEME</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.svg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles/style.css">
+</head>
+<body>
+
+<nav id="main-nav" class="navbar navbar-dark navbar-expand-md navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="../index.html#top">
+            <img class="pull-left logo"
+                 src="../assets/images/logo.svg"
+                 width="75"
+                 height="75"
+                 alt="MarkoJS">
+            <span class="d-none d-md-inline">Erhan Kurt | MarkoJS </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ms-auto me-5 mb-3">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="../index.html">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#about">Hakkında</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#contents">Daha Fazlası</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#document">Döküman</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="content" class="text-center">
+    <section class="blog-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Kod Eleme</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-1">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-12 text-start">
+                    <p class="text-start">
+                        Bugün web geliştirme için norm, tek sayfalık bir React uygulaması gibi görünüyor. Bu,
+                        sayfalarınıza etkileşim eklemeyi kolaylaştırır, ancak bunun oldukça büyük bir maliyeti vardır.
+                        Paket bölme ve sunucu tarafı oluşturma gibi teknikler bu maliyeti bir şekilde azaltabilir, ancak
+                        kendi uyarıları vardır. Belki de herkes yanılıyor.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/code-elimination/ct-1.png" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        Dan Abramov mevcut statükonun sürdürülebilir olmadığı ve uzun vadede React ekibinin, sunucunun
+                        daha önemli
+                        bir rol oynadığı bir geleceğe doğru ilerlediklerini düşündüğü konusunda hemfikir.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/code-elimination/ct-2.png" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/code-elimination/ct-3.png" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        Dan, bileşenlerinizin kodunun çoğunun asla istemciye gönderilmediği, ancak sunucuyu ve istemciyi
+                        ayrı ayrı kodlamanız gerekmediği bir gelecek tasavvur etmeye devam ediyor. “Gelecek hibrit”
+                        diyor.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/code-elimination/ct-4.webp" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        O gelecek buradaydı: Adı Marko.
+                        <br>
+                        Marko, sunucu tarafından oluşturulan uygulamalara odaklanmasıyla paketten ayrılan bir UI
+                        kitaplığıdır. Bu yeni, deneysel bir şey de değil. Marko, eBay'de son 6 yıldan beri
+                        kullanılmaktadır ve Node.js, webpack gibi muhtemelen bildiğiniz ve kullandığınız diğer
+                        projelerle birlikte OpenJSF kapsamındaki bir projedir.
+                        , Express ve ESLint.
+                        <br>
+                        Marko'nun sunucu tarafı işlemeye odaklanması, bazılarının onu Node.js için başka bir şablon
+                        oluşturma dili olarak görmesine neden oldu. Demek istediğim, Marko'nun resmi bir istemci tarafı
+                        yönlendiricisi yok. Topluluk tarafından yönetilen bir yönlendiricisi bile yok.
+                        Ancak bunun nedeni, Marko'nun web uygulamaları oluşturmanın daha iyi bir yolu olduğuna inandığım
+                        şeye odaklanmış olmasıdır:
+                        <br>
+                        Marko, bileşenleri oluşturarak sayfalar oluşturmanıza olanak tanır ve bu bileşenlerden bazıları
+                        durum bilgili olabilir. Yalnızca durumu olan bileşenler,
+                        veya tarayıcıda hedeflenen diğer mantık¹ aslında tarayıcıya gönderilir ve Marko, bu bileşenlerin
+                        ihtiyaç duyduğu sunucudaki tüm verilerin seri hale getirilmesini ve bunları tarayıcıya monte
+                        edilmesini otomatik olarak gerçekleştirir.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/code-elimination/ct-5.webp" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        Bu, çoğu uygulama için, kod bölmede bile eşdeğer bir SPA'ya göre çok daha az kod² göndermeniz
+                        anlamına gelir. Ve hiçbir bileşenin hidratlanması gerekmiyorsa? Hiçbir şey hidratlı değildir.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <h4>Nasıl çalışır?</h4>
+                    <p class="text-start">
+                        Bir Marko şablonu derlendiğinde, oldukça basit bir buluşsal yöntem kullanarak hangi bileşenlerin
+                        yalnızca sunucu olduğunu ve hangilerinin tarayıcıya gönderilmesi gerektiğini belirleyebilir:
+                        bileşenle ilişkili bir sınıf var mı? Bu bilgi, paket oluşturucu eklentileri ve sunucu oluşturma
+                        mantığı tarafından kullanılır.
+                        <br>
+                        Marko'nun paketleyici eklentilerinden biri müşteri hazırlarken
+                        yan demetler, bileşen ağacınızda yürümeye başlar. Yürürken, resimler ve css gibi tarayıcının
+                        ihtiyaç duyduğu varlıkları keşfeder. Durum bilgisi olan bir bileşene çarptığında, bileşeni
+                        pakete ve ayrıca bileşeni Marko'nun hidrasyon kaydına koyacak bir işlev çağrısını içerir.
+                        Bu varlıklar daha sonra sayfa tarafından oluşturulan html'ye dahil edilir.
+                        <br>
+                        Ardından sayfa sunucuda işlenir. Bu üst düzey bileşenlerden biri oluşturulduğunda, Marko HTML'de
+                        bileşenin başlangıcını ve sonunu işaretler ve bileşene iletilen verileri bu bölümle ve bileşen
+                        hidrasyon kayıt defterinde ilişkilendirir. Daha sonra, sunucudan her geçişte başlangıç kodunu
+                        verimli bir şekilde seri hale getirir.
+                        <br>
+                        Başlatma, JS paketinin zaman uyumsuz olarak yüklenebilmesi için ayarlanmıştır. Paket hala
+                        yükleniyorsa, paket kullanıma sunulana kadar bileşen başlatma ertelenir. Ancak paket yüklenirse,
+                        bileşenler mümkün olan en kısa sürede başlatılır,
+                        diğer bileşenler, verilerin getirilmesini bekledikleri için henüz işlenmemiş olsalar bile.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/code-elimination/ct-6.jpg" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <h4>Gelecek</h4>
+                    <p class="text-start">
+                        Bileşen düzeyinde hidrasyon zaten burada ve mevcut durumdan çok daha iyi, ancak hala
+                        iyileştirilecek alan var:
+                        <br>
+                        Uygulama ağacınızda en üst düzey durum bilgisi olan bileşenleri belirleyebilirsiniz, ancak bu
+                        durum bilgisi olan bileşenlerin içinde bile genellikle ek statik içerik vardır.
+                        diğer statik bileşenler de dahil olmak üzere (ve "statik" derken gerçekten statik olduğunu
+                        kastetmiyorum, ancak tarayıcıda güncellenmeyeceğini).
+                        <br>
+                        Bileşen sınırlarının, yalnızca sunucu ile istemcide neyin gerekli olduğu arasındaki ideal ayrım
+                        olmayabileceği ortaya çıktı. Bir bileşenin bir kısmının güncellenebilmesi, her şeye ihtiyacımız
+                        olduğu anlamına gelmez.
+                        Ve muhtemelen bileşene iletilen tüm verilere de ihtiyacımız yok.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/code-elimination/ct-7.webp" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        Buraya nasıl geleceğiz? Modern çerçevelerimiz (Marko dahil), bileşenlerine odaklanmıştır. Ve
+                        Sanal DOM paradigması, bir bileşenin bir kısmını sulandırmaya pek uygun değil.
+                        <br>
+                        Marko için, reaktiviteyi dilin kendisine inşa ediyoruz. Marko'yu, dinamik ve reaktif kullanıcı
+                        arayüzleri oluşturmak için HTML'nin yeniden tasavvuru olarak görüyoruz.
+                        Mevcut sınıf tabanlı api hiçbir yere gitmiyor, ancak yeni reaktif ilkellerin üzerinde bir katman
+                        olarak var olacak. Marko'nun gelecekteki bir sürümünde, muhtemelen ayrı olarak yüklediğiniz bir
+                        paket olacaktır. Bu, "HTML'de Kancalar" gibi geliyorsa, çok uzakta değilsiniz.
+                        Bu yeni reaktif ilkel öğeler, çalışma zamanımızda VDOM'un yerini alacak ve optimizasyonlar için
+                        bileşen sınırlarına güvenmeden ayrıntılı güncellemeler ve hidrasyon yapmamıza izin verecek.
+                        VDOM'un sonsuza kadar olmadığını biliyorduk, hatta belgelerimizde bundan bahsediyoruz:
+                        <br>
+                        Dahili olarak Marko, görünümü güncellemek için sanal DOM farklılaştırma/yama uygulamalarını
+                        kullanır.
+                        ama bu her an değişebilecek bir uygulama detayı.
+                        <br>
+                        İşlerin gidişatından heyecan duyuyoruz ve yakında bu cephede paylaşacak daha çok şeyimiz olacak!
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-outline-primary mt-5 mb-3" href="../index.html#contents"><span
+                            class="glyphicon glyphicon-triangle-bottom"></span> Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <small class="text-gray">Copyright &copy;
+                    <script type="text/javascript">document.write(new Date().getFullYear());</script>
+                    Erhan Kurt</small>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js'></script>
+<script src="../assets/scripts/script.js"></script>
+
+</body>
+</html>

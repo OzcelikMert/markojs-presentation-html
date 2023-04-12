@@ -1,0 +1,177 @@
+:root {
+  --theme-bg: #141414;
+  --theme-bg-2: #1a1a1a;
+  --theme-navbar-bg: #1e1e1e;
+  --theme-title-color: white;
+  --theme-title-2-color: gainsboro;
+  --theme-text-color: #adadad;
+  --theme-footer-bg: #080808;
+}
+/* =====================
+  General Styles
+===================== */
+html, body {
+  height: 100%; /* Fullscreen BG */
+  width: 100%;
+}
+body {
+  color: #394c4a;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+h1 {
+  font-family: 'Unica One', cursive;
+  color: var(--theme-title-color);
+}
+h2 {
+  font-family: 'Unica One', cursive;
+  color: var(--theme-title-color);
+}
+h3 {
+  font-family: 'Unica One', cursive;
+  color: var(--theme-title-color);
+}
+h4 {
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--theme-title-2-color);
+}
+h5 {
+  color: var(--theme-title-2-color);
+}
+p {
+  color: var(--theme-text-color);
+}
+small {
+  line-height: 1;
+}
+a {
+  color: var(--theme-text-color);
+  transition: background-color 0.2s ease-in-out,
+              color 0.2s ease-in-out;
+}
+section {
+  padding: 80px 60px;
+}
+/* =====================
+  Variables
+===================== */
+.bg-1 {
+  background-color: var(--theme-bg);
+}
+.bg-2 {
+  background-color: var(--theme-bg-2);
+}
+/* =====================
+  Navbar Styles
+===================== */
+.navbar-default {
+  background-color: var(--theme-navbar-bg);
+}
+.navbar-default.fixed-top {
+  background-color: var(--theme-navbar-bg);
+}
+.navbar-nav {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.navbar-brand,
+.navbar-nav > li > a {
+  font-family: 'Unica One', cursive;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+  height: 60px;
+  line-height: 60px;
+  margin-top: 10px;
+  opacity: 1;
+  overflow: hidden;
+  text-transform: uppercase;
+  transition: opacity 0.5s ease-in-out;
+}
+.navbar-brand .logo {
+  margin-right: 15px;
+  margin-top: -12px;
+  max-height: 90px;
+}
+.navbar-nav > li > a {
+  color: var(--theme-text-color);
+  height: 36px;
+  line-height: 36px;
+  margin-top: 22px;
+}
+/* =====================
+  carousel Styles
+===================== */
+.carousel {
+  background: linear-gradient(rgb(25 25 25 / 73%), rgb(23 23 23 / 95%)), url(../images/carousel.jpg) center center fixed;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  min-height: 510px;
+  position: relative;
+  width: 100%;
+}
+.carousel .container {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.carousel .row {
+  padding-bottom: 45px;
+}
+.carousel .logo {
+  max-width: 150px;
+  width: 80%;
+}
+.carousel .title {
+  color: #29a598;
+}
+.carousel p {
+  margin: 0;
+}
+
+/* =====================
+  About
+===================== */
+#about i {
+  display: block;
+  font-size: 75px;
+}
+/* =====================
+  Containers
+===================== */
+footer{
+  padding: 30px 30px;
+  background-color: var(--theme-footer-bg)
+}
+
+/* =====================
+  Buttons
+===================== */
+.btn {
+  padding: 12px 36px;
+  text-transform: uppercase;
+}
+/* =====================
+  Buttons
+===================== */
+.blog-page-header {
+  background: linear-gradient(rgb(25 25 25 / 73%), rgb(23 23 23 / 95%)), url(../images/carousel.jpg) center center fixed;
+  background-size: cover;
+}
+
+@media (max-width: 767px) {
+  /*** carousel ***/
+  .carousel .logo {
+    max-width: 120px;
+  }
+}

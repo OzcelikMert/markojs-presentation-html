@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <title>Erhan Kurt | MarkoJS - AŞAMALI İŞLEME</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/logo.svg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/styles/style.css">
+</head>
+<body>
+
+<nav id="main-nav" class="navbar navbar-dark navbar-expand-md navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="../index.html#top">
+            <img class="pull-left logo"
+                 src="../assets/images/logo.svg"
+                 width="75"
+                 height="75"
+                 alt="MarkoJS">
+            <span class="d-none d-md-inline">Erhan Kurt | MarkoJS </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ms-auto me-5 mb-3">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="../index.html">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#about">Hakkında</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#contents">Daha Fazlası</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#document">Döküman</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="content" class="text-center">
+    <section class="blog-page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Aşamalı İşleme</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-1">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-12 text-start">
+                    <p class="text-start">
+                        WebSockets veya süslü herhangi bir şey değil, sadece eski güzel yığın aktarım kodlaması. Bu
+                        yeterince ilgi görmüyor. Yanıtınızı tek bir patlamada tarayıcıya geri göndermek yerine,
+                        elimizden geldiğince HTML dizesini yayınlayabiliriz.
+                        <br>
+                        Bunu bir süredir etrafa saçılmış olarak duymuş olsanız da,
+                        JavaScript Çerçevelerinin neredeyse hiçbiri akışı anlamlı bir şekilde desteklemez.
+                        RenderToNodeStreams'lerine sahip olabilirler, ancak sunucuda gerçek zaman uyumsuz işleme yapma
+                        yeteneği olmadan, o kadar etkili olmaz. Varlıkların daha hızlı yüklenmesini sağlamak için belge
+                        başlığını erken gönderebilirler, ancak geri kalan avantajlar kaybolur.
+                        <br>
+                        Yararları oldukça fazladır.
+                        Öncelikle kullanıcıya içerik göndermek için beklemiyoruz. Erken görsel geri bildirim, web
+                        sitesinin çok daha duyarlı görünmesini sağlayabilir. Ayrıca tarayıcı, HTML'yi ayrıştırmaya daha
+                        erken başlayabileceği için varlıkları daha erken yüklemeye başlayabilir. Buna sayfadaki resimler
+                        de dahildir.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/ct-3.gif" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <h4>Nasıl çalışır?</h4>
+                    <p class="text-start">
+                        Tüm bunları mümkün kılan şey, tarayıcıların, henüz kapanış etiketlerini almadıkları çizim
+                        öğelerini bile hevesle işleme koymaları ve siz onları sayfada gönderirken komut dosyalarını
+                        satır içinde yürütmesidir. Bunun Marko'da nasıl çalıştığını anlatacağım.
+                        <br>
+                        Eşzamanlı içeriği işleyerek ve yer tutucuları eşzamansız sınırlar üzerinde işleyerek başlıyoruz.
+                        Pek çok kitaplık, bunu Suspense veya Await etiketleriyle yapmak için zaten yöntemlere sahiptir.
+                        Ardından, zaman uyumsuz istekten veriler geri döndüğünde, içeriği sunucuda işlersiniz ve bunu,
+                        display: none ile bir içindeki önceki içerikten sonraki sayfaya gönderirsiniz.
+                        Ardından, yeni düğümleri yer tutucunun olduğu yere eklemek ve hidrasyon için seri hale
+                        getirilmiş verileri önyüklemek için bir script etiketi yazarız. Tüm eşzamansız veriler
+                        tamamlandığında sayfanın sonunu göndeririz ve akışı kapatırız.
+                        <br>
+                        Marko'nun yazarından gelen bu 2014 makalesi, bunun nasıl çalıştığına dair çok daha fazla
+                        ayrıntıya giriyor.
+                        Kısmi hidrasyon ile birleştirildiğinde, sayfa genellikle daha fazla JavaScript'in yüklenmesini
+                        beklemeden hemen etkileşimli hale gelebilir. Performans avantajlarının ötesinde, dinamik bir
+                        deneyim olmasına rağmen, sayfada JavaScript yürütülmediğinde (içerik orada sıra dışı) SEO ile
+                        çalışmaya devam eder.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <h4>Akış Performansı</h4>
+                    <p class="text-start">
+                        Peki bu ne kadar performanslı olabilir? Aynı basit uygulamayı birden çok farklı teknikte işlemek
+                        için Solid'i kullandım. Nextjs, Nuxt, SvelteKit gibi ortak çerçevelerinizde bulduğunuz gibi
+                        kaynakları beklemenin nasıl göründüğünü karşılaştırın:
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/progressive-rendering/ct-1.png" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        Akışla yüklenen aynı sayfaya:
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/progressive-rendering/ct-2.png" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        İlk boyaların 450ms yerine 180ms işaretinde gelmesi yalnızca çok daha hızlı olmakla kalmıyor.
+                        Hidrasyon için kullanılan JavaScript zaten yüklendiğinden, genel yükleme profili küçülür. Akış
+                        örneğinin tamamı temelde 260 ms'de yapılır ve burada beklediğimiz örnek yürütmeyi tamamlamak
+                        için 500 ms'ye kadar sürer.
+                        <br>
+                        Bu genellikle insanların yanlışlıkla istemci tarafı işlemenin SSR'den daha iyi performansa sahip
+                        olabileceğini varsaymalarının nedenidir. Yalnızca istemci oluşturma ile yüklenen aynı sayfa,
+                        veri SSR çözümü için tipik beklemeyi azaltabilir. Ve senkronize uygulama kabuğunu ilk önce iyi
+                        bir şekilde işlerseniz, akışla yaklaşık olarak aynı zaman çizelgesinde görünür.
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/progressive-rendering/ct-3.jpg" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        Şimdi düşünüyor olabilirsiniz. O zaman akışa ihtiyacım yok, kabuğu tembel bir şekilde
+                        işleyebilir ve müşteriden veri alabilirim. Demek istediğim, bu örnekte tarayıcıdan ardışık veri
+                        istekleri bile var. Müşteri için bundan daha kötü olamaz.
+                        <br>
+                        Evet, bununla ilgili... Şimdiye kadarki bu testler hızlı ağlar üzerinde yapıldı. Daha yavaş
+                        ağlarda,
+                        müşteri için farklı bir hikaye. Sunucu yöntemleri arasındaki fark orantılı olarak daha az önemli
+                        hale gelir, ancak "Hızlı 3G" üzerinde akış karşılaştırmasını görebildiğimiz gibi istemci toz
+                        içinde kalır:
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/progressive-rendering/ct-4.png" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        Müşterimizin işlenmiş versiyonuna:
+                    </p>
+                </div>
+                <div class="col-md-12 mt-5">
+                    <img src="../assets/images/pages/progressive-rendering/ct-5.png" alt="MarkoJS" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-5">
+                    <p class="text-start">
+                        Burada işler çok daha kötüye gitti. Akış örneğimizin her şeyi yüklemesi artık 1320ms sürüyor (gelmesi tatlı zamanını alan favicon hariç). Ancak daha önce eşit performans gösteren müşteri toplayıcımız farklı bir ligde. Tüm bu JavaScript'in yüklenmesi ve çalıştırılması 2600ms'ye kadar tamamlanmayacak.
+                        Evet, oldukça önemsiz bir sayfada bir saniyeden fazla daha yavaş. Bu somut bir fark ve en yavaş ağ bile değil.
+
+                        Yalnızca akış, taze dinamik içerik için pano genelinde en iyi performansı sağlar. Bunu yazarken bildiğim kadarıyla bu özellik sadece Marko ve Solid.
+
+                        Ancak bunun diğer kütüphanelere geldiğini görmeyi bekleyin.
+                        React Server Components ile Başlamak. Diğerlerinin de takip edeceğinden eminim.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-outline-primary mt-5 mb-3" href="../index.html#contents"><span class="glyphicon glyphicon-triangle-bottom"></span> Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <small class="text-gray">Copyright &copy;
+                    <script type="text/javascript">document.write(new Date().getFullYear());</script>
+                    Erhan Kurt</small>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js'></script>
+<script src="../assets/scripts/script.js"></script>
+
+</body>
+</html>
